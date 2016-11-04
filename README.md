@@ -1,11 +1,14 @@
 # System Details
+
 * **Hardware**: [Intel NUC6I5SYH](http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html)
   * **Memory**: 16G DDR4
   * **Disk**: 128G Samsung EVO SSD
 * **Screen**: [AOC U2879VF](https://www.amazon.com/AOC-U2879VF-Featured-LED-Backlit-Monitor/dp/B0163JLIWU) *Highly recommend!*
   * **Screen Size**: 28"
   * **Resolution**: 3840 X 2160
+  
 # Software
+
 * **Distribution**: Arch
 * **Window Manager**: i3-gaps *(i3-gaps)*
 * **Shell**: [Fish shell](https://fishshell.com/) *(fish)*
