@@ -1,0 +1,63 @@
+set $mod Mod4
+font pango:Ubuntu Mono, FontAwesome, 10
+floating_modifier $mod
+bindsym $mod+Return exec urxvt
+bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec --no-startup-id rofi -show run -opacity 60
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+s exec --no-startup-id scrot && notify-send " Saving screenshot"
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec i3exit logout
+bindsym $mod+Shift+v exec --no-startup-id pavucontrol
+bindsym $mod+Shift+o exec --no-startup-id variety --fast-forward && notify-send " Loading next wallpaper..."
+gaps inner 12
+gaps outer 0
+focus_follows_mouse no
+for_window [class="^.*"] border pixel 1
+mode "resize" {
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize shrink height 10 px or 10 ppt
+  bindsym Up resize grow height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+bar {
+  colors {
+    background #44444444
+    statusline #8f8f8f
+  }
+  font pango:Ubuntu Mono, FontAwesome 9
+  i3bar_command i3bar -t
+  position top
+  workspace_buttons no
+  status_command i3status
+}
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && notify-send " Mute"
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% && notify-send " Reduce volume"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% && notify-send " Increase volume"
+exec --no-startup-id compton
+exec --no-startup-id variety
+exec --no-startup-id redshift-gtk
+exec --no-startup-id blueman-applet
+exec --no-startup-id twmnd
+exec --no-startup-id mopidy
